@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using Tyuiu.ZainetdinovRA.Sprint6.Task1.V22.Lib;
+using System.Windows.Forms.VisualStyles;
+using Tyuiu.ZainetdinovRA.Sprint6.Task2.V22.Lib;
 
-namespace Tyuiu.ZainetdinovRA.Sprint6.Task1.V22
+namespace Tyuiu.ZainetdinovRA.Sprint6.Task2.V22
 {
     public partial class FormMain : Form
     {
@@ -13,9 +14,8 @@ namespace Tyuiu.ZainetdinovRA.Sprint6.Task1.V22
             InitializeComponent();
             ds = new DataService();
         }
-        private void buttonCalculate_Click_1(object sender, EventArgs e)
+        private void buttonCalculate_Click(object sender, EventArgs e)
         {
-
             try
             {
                 int startValue = int.Parse(textBoxStart.Text);
@@ -29,14 +29,12 @@ namespace Tyuiu.ZainetdinovRA.Sprint6.Task1.V22
 
                 double[] results = ds.GetMassFunction(startValue, stopValue);
 
-                textBoxResults.Clear();
-                textBoxResults.AppendText("X\tf(X)\r\n");
-                textBoxResults.AppendText("----------------\r\n");
+                dataGridViewResults_RA.Rows.Clear();
 
                 for (int i = 0; i < results.Length; i++)
                 {
                     int x = startValue + i;
-                    textBoxResults.AppendText($"{x}\t{results[i]:F2}\r\n");
+                    dataGridViewResults_RA.Rows.Add(x, results[i].ToString("F2"));
                 }
             }
             catch (FormatException)
@@ -49,18 +47,16 @@ namespace Tyuiu.ZainetdinovRA.Sprint6.Task1.V22
             }
         }
 
+        private void buttonInformation_RA_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Таск второй выполнил студент группы ИИПБ-24-2 Зайнетдинов Руслан Александрович.");
+        }
+
         private void FormMain_Load(object sender, EventArgs e)
         {
-        }
-
-        private void buttonInformation_RA_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Таск первый выполнил студент группы ИИПБ-24-2 Зайнетдинов Руслан Александрович");
-        }
-
-        private void textBoxResults_TextChanged(object sender, EventArgs e)
-        {
-
+            // Initialize DataGridView columns
+            dataGridViewResults_RA.Columns.Add("X", "X");
+            dataGridViewResults_RA.Columns.Add("fX", "f(X)");
         }
     }
 }

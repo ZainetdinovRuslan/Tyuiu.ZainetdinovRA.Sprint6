@@ -49,6 +49,7 @@
             textBoxStop.Name = "textBoxStop";
             textBoxStop.Size = new Size(125, 27);
             textBoxStop.TabIndex = 0;
+            //textBoxStop.TextChanged += this.textBoxStop_TextChanged;
             // 
             // textBoxStart
             // 
@@ -57,6 +58,7 @@
             textBoxStart.Name = "textBoxStart";
             textBoxStart.Size = new Size(116, 27);
             textBoxStart.TabIndex = 0;
+            //textBoxStart.TextChanged += this.textBoxStart_TextChanged;
             // 
             // labelStop
             // 
@@ -66,6 +68,7 @@
             labelStop.Size = new Size(96, 20);
             labelStop.TabIndex = 1;
             labelStop.Text = "Конец Шага:";
+            //labelStop.Click += this.labelStop_Click;
             // 
             // buttonCalculate
             // 
@@ -88,6 +91,7 @@
             textBoxResults.ReadOnly = true;
             textBoxResults.Size = new Size(253, 348);
             textBoxResults.TabIndex = 3;
+            textBoxResults.TextChanged += textBoxResults_TextChanged;
             // 
             // textBoxResult_RA
             // 
@@ -131,6 +135,7 @@
             textBoxStart_RA.Size = new Size(268, 67);
             textBoxStart_RA.TabIndex = 7;
             textBoxStart_RA.Text = "Старт Шага:";
+            //textBoxStart_RA.TextChanged += this.textBoxStart_RA_TextChanged;
             // 
             // labelInput_RA
             // 
@@ -140,6 +145,7 @@
             labelInput_RA.Size = new Size(102, 20);
             labelInput_RA.TabIndex = 8;
             labelInput_RA.Text = "Ввод данных:";
+            //labelInput_RA.Click += this.labelInput_RA_Click;
             // 
             // labelConditions_RA
             // 
